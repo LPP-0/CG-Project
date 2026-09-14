@@ -6,6 +6,7 @@ CMakeUserPresets.json
 
 # Visual Studio generated files
 .vs/
+.vscode/
 
 # Compiled binaries and intermediate files
 *.exe
