@@ -16,7 +16,7 @@ The project implements an OpenGL rendering engine and a 3D model generator, with
 
 The project uses CMake, OpenGL, GLUT/freeglut, GLEW and DevIL.
 
-### Ubuntu / Linux
+### Linux
 
 Install a C++ compiler, CMake and the required development libraries:
 
