@@ -1,0 +1,25 @@
+# CMake build directories and generated files
+build/
+CMakeCache.txt
+compile_commands.json
+CMakeUserPresets.json
+
+# Visual Studio generated files
+.vs/
+
+# Compiled binaries and intermediate files
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.ipch
+
+# Operating-system files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<world>
+    <!-- Advanced Test: Spotlight and Multiple Lighting Techniques -->
+    <window width="1280" height="960" />
+
+    <camera>
+        <position x="15" y="10" z="20" />
+        <lookAt x="0" y="0" z="0" />
+        <up x="0" y="1" z="0" />
+        <projection fov="45" near="0.1" far="500" />
+    </camera>
+
+    <!-- Lighting setup -->
+    <lights>
+        <!-- Ambient-like directional light for general illumination -->
+        <light type="directional" dirX="-1" dirY="-1" dirZ="-1" />
+
+        <!-- Point light: Red warm light -->
+        <light type="point" posX="10" posY="8" posZ="10" />
+
+        <!-- Point light: Blue cool light -->
+        <light type="point" posX="-10" posY="8" posZ="10" />
+
+        <!-- Spotlight effect (approximated with point light high up) -->
+        <light type="point" posX="0" posY="15" posZ="0" />
+    </lights>
+
+    <!-- Main scene -->
+    <group>
+        <!-- Ground: Large reflective plane -->
+        <group>
+            <transform>
+                <translate x="0" y="-2" z="0" />
+                <scale x="15" y="1" z="15" />
+            </transform>
+            <models>
+                <model file="plane.3d">
+                    <material>
+                        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+                        <diffuse r="0.5" g="0.5" b="0.5" a="1.0" />
+                        <specular r="0.8" g="0.8" b="0.8" a="1.0" />
+                        <shininess value="64" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Central structure: Metallic sphere -->
+        <group>
+            <transform>
+                <translate x="0" y="0" z="0" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="sphere.3d">
+                    <material>
+                        <ambient r="0.3" g="0.3" b="0.3" a="1.0" />
+                        <diffuse r="0.8" g="0.8" b="0.7" a="1.0" />
+                        <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+                        <shininess value="256" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Red zone: Influenced by red point light -->
+        <group>
+            <transform>
+                <translate x="8" y="0" z="0" />
+                <scale x="1.5" y="3" z="1.5" />
+            </transform>
+            <models>
+                <model file="cylinder.3d">
+                    <material>
+                        <ambient r="0.3" g="0.0" b="0.0" a="1.0" />
+                        <diffuse r="1.0" g="0.3" b="0.3" a="1.0" />
+                        <specular r="0.9" g="0.5" b="0.5" a="1.0" />
+                        <shininess value="32" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Blue zone: Influenced by blue point light -->
+        <group>
+            <transform>
+                <translate x="-8" y="0" z="0" />
+                <scale x="1.5" y="3" z="1.5" />
+            </transform>
+            <models>
+                <model file="cylinder.3d">
+                    <material>
+                        <ambient r="0.0" g="0.0" b="0.3" a="1.0" />
+                        <diffuse r="0.3" g="0.3" b="1.0" a="1.0" />
+                        <specular r="0.5" g="0.5" b="0.9" a="1.0" />
+                        <shininess value="32" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Front: Cone under spotlight -->
+        <group>
+            <transform>
+                <translate x="0" y="0" z="8" />
+                <scale x="2" y="3" z="2" />
+            </transform>
+            <models>
+                <model file="cone.3d">
+                    <material>
+                        <ambient r="0.2" g="0.2" b="0.0" a="1.0" />
+                        <diffuse r="0.9" g="0.9" b="0.2" a="1.0" />
+                        <specular r="1.0" g="1.0" b="0.5" a="1.0" />
+                        <emissive r="0.1" g="0.1" b="0.0" a="1.0" />
+                        <shininess value="64" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Back: Dark absorptive cone -->
+        <group>
+            <transform>
+                <translate x="0" y="0" z="-8" />
+                <scale x="2" y="3" z="2" />
+            </transform>
+            <models>
+                <model file="cone.3d">
+                    <material>
+                        <ambient r="0.1" g="0.0" b="0.1" a="1.0" />
+                        <diffuse r="0.3" g="0.0" b="0.3" a="1.0" />
+                        <specular r="0.2" g="0.0" b="0.2" a="1.0" />
+                        <shininess value="8" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Right: Reflective box -->
+        <group>
+            <transform>
+                <translate x="8" y="0" z="8" />
+                <rotate angle="45" x="0" y="1" z="0" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="box.3d">
+                    <material>
+                        <ambient r="0.3" g="0.3" b="0.3" a="1.0" />
+                        <diffuse r="0.7" g="0.7" b="0.7" a="1.0" />
+                        <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+                        <shininess value="200" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Left: Matte box -->
+        <group>
+            <transform>
+                <translate x="-8" y="0" z="8" />
+                <rotate angle="-45" x="0" y="1" z="0" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="box.3d">
+                    <material>
+                        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+                        <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />
+                        <specular r="0.2" g="0.2" b="0.2" a="1.0" />
+                        <shininess value="4" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Decorative torus -->
+        <group>
+            <transform>
+                <translate x="0" y="3" z="0" />
+                <rotate angle="30" x="1" y="1" z="1" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="torus.3d">
+                    <material>
+                        <ambient r="0.1" g="0.2" b="0.1" a="1.0" />
+                        <diffuse r="0.3" g="0.8" b="0.3" a="1.0" />
+                        <specular r="0.6" g="1.0" b="0.6" a="1.0" />
+                        <shininess value="96" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+    </group>
+</world>

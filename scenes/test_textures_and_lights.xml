@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<world>
+    <!-- Window Configuration -->
+    <window width="1024" height="768" />
+
+    <!-- Camera Setup -->
+    <camera>
+        <position x="10" y="8" z="15" />
+        <lookAt x="0" y="0" z="0" />
+        <up x="0" y="1" z="0" />
+        <projection fov="50" near="0.1" far="500" />
+    </camera>
+
+    <!-- Lighting Setup -->
+    <lights>
+        <!-- Main directional light (like sunlight) -->
+        <light type="directional" dirX="-1" dirY="-1" dirZ="-1" />
+
+        <!-- Point light (warm) -->
+        <light type="point" posX="5" posY="5" posZ="5" />
+
+        <!-- Point light (cool) -->
+        <light type="point" posX="-5" posY="3" posZ="5" />
+    </lights>
+
+    <!-- Main scene group -->
+    <group>
+        <!-- Floor plane -->
+        <group>
+            <transform>
+                <translate x="0" y="-3" z="0" />
+                <scale x="10" y="1" z="10" />
+            </transform>
+            <models>
+                <model file="plane.3d">
+                    <material>
+                        <ambient r="0.3" g="0.3" b="0.3" a="1.0" />
+                        <diffuse r="0.7" g="0.7" b="0.7" a="1.0" />
+                        <specular r="0.3" g="0.3" b="0.3" a="1.0" />
+                        <shininess value="16" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Central sphere with material -->
+        <group>
+            <transform>
+                <translate x="0" y="0" z="0" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="models/textured_sphere.3d">
+                    <material>
+                        <ambient r="0.2" g="0.2" b="0.4" a="1.0" />
+                        <diffuse r="0.4" g="0.4" b="0.8" a="1.0" />
+                        <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+                        <shininess value="64" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Cylinder with warm material -->
+        <group>
+            <transform>
+                <translate x="4" y="0" z="4" />
+                <scale x="1.5" y="3" z="1.5" />
+            </transform>
+            <models>
+                <model file="cylinder.3d">
+                    <material>
+                        <ambient r="0.4" g="0.2" b="0.0" a="1.0" />
+                        <diffuse r="0.8" g="0.5" b="0.2" a="1.0" />
+                        <specular r="0.9" g="0.6" b="0.3" a="1.0" />
+                        <shininess value="32" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Cone with cool material -->
+        <group>
+            <transform>
+                <translate x="-4" y="0" z="4" />
+                <scale x="1.5" y="3" z="1.5" />
+            </transform>
+            <models>
+                <model file="cone.3d">
+                    <material>
+                        <ambient r="0.0" g="0.2" b="0.4" a="1.0" />
+                        <diffuse r="0.2" g="0.5" b="0.8" a="1.0" />
+                        <specular r="0.5" g="0.7" b="1.0" a="1.0" />
+                        <shininess value="48" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Box with reflective material -->
+        <group>
+            <transform>
+                <translate x="4" y="0" z="-4" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="box.3d">
+                    <material>
+                        <ambient r="0.3" g="0.3" b="0.3" a="1.0" />
+                        <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />
+                        <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+                        <emissive r="0.1" g="0.1" b="0.1" a="1.0" />
+                        <shininess value="128" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Torus with green material -->
+        <group>
+            <transform>
+                <translate x="-4" y="0" z="-4" />
+                <rotate angle="45" x="1" y="0" z="1" />
+                <scale x="2" y="2" z="2" />
+            </transform>
+            <models>
+                <model file="torus.3d">
+                    <material>
+                        <ambient r="0.0" g="0.3" b="0.0" a="1.0" />
+                        <diffuse r="0.2" g="0.8" b="0.2" a="1.0" />
+                        <specular r="0.5" g="1.0" b="0.5" a="1.0" />
+                        <shininess value="64" />
+                    </material>
+                </model>
+            </models>
+        </group>
+
+        <!-- Spotlight effect with small sphere -->
+        <group>
+            <transform>
+                <translate x="0" y="5" z="0" />
+                <scale x="0.5" y="0.5" z="0.5" />
+            </transform>
+            <models>
+                <model file="sphere.3d">
+                    <material>
+                        <ambient r="0.5" g="0.5" b="0.0" a="1.0" />
+                        <diffuse r="1.0" g="1.0" b="0.0" a="1.0" />
+                        <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+                        <emissive r="0.5" g="0.5" b="0.0" a="1.0" />
+                        <shininess value="128" />
+                    </material>
+                </model>
+            </models>
+        </group>
+    </group>
+</world>
